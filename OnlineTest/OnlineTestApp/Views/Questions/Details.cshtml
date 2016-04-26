@@ -1,0 +1,67 @@
+﻿@model  OnlineTestEntities.Question
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerKey)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

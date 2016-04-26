@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700")
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+Inherited from html
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+    font-family: "Open Sans", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container{
+    height: 100%;
+    width:100%;
+
+}
+.header{
+    background-color: #ecf0f1;
+    height: 100px;
+    width:100%;
+    border:2px solid #D3D3D3;
+    padding:10px;
+}
+
+.logo{
+    height:80px;
+    width:10%;
+    padding:3px;
+    float: left;
+
+}
+.candidate_info{
+    height: 80px;
+    padding: 10px;
+    width:60%;
+    float:left;
+
+}
+.timer{
+    height:80px;
+    width:30%;
+    float: right;
+    padding-left: 80px;
+}
+.body_container{
+    height:550px;
+    width:100%;
+
+}
+.body_left{
+    height:100%;
+    width:75%;
+    float: left;
+}
+
+
+.question{
+    background: #e74c3c;
+    height: 90%;
+    color: white;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    font-size: larger;
+    vertical-align: top;
+    text-align: center;
+    padding: 30px 30px 30px 0px;
+
+
+}
+
+.footer{
+    height: 10%;
+    width: 100%;
+    background-color: #D5D5D5;
+}
+.foot_img{
+    float: left;
+    width:40%;
+}
+.foot_prev{
+    float: left;
+    width:30%;
+}
+.foot_next{
+    float:right;
+    width:30%;
+}
+
+.btn_prev, .btn_next {
+    border: 1px solid #F1F1F1;
+    background-color: #F5F5F5;
+    color: #00BCDF;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+}
+.body_right{
+                width:25%;
+                height:100%;
+
+                float:right;
+                
+            }
+.qcategory{
+                width:100%;
+                height:50%;
+                padding: 50px 50px; 
+                background-color: #ecf0f1;               
+                
+            }
+.q_nums{
+         width:100%;
+                height:50%;
+                background-color: #ecf0f1; 
+
+               
+            }
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+Inherited from body.textpage.unselectable.ng-scope
+.unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+Pseudo ::before element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.questions a.current {
+    
+    font-weight: 700;
+}
+
+.questions a {
+    border: 2px solid #D3D3D3;
+    color: #D3D3D3;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    height: 36px;
+    width: 36px;
+    text-align: center;
+    padding-right: 0;
+    padding-left: 0;
+    outline: none;
+}
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
+a:active, a:hover {
+    outline: 0;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #ecf0f1;
+    background-color: #00BCDF !important;
+    border-color: #00BCDF;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+.btn {
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: #c0392b;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+Inherited from li.ng-scope
+user agent stylesheet
+li {
+    display: inline;
+    text-align: -webkit-match-parent;
+}
+Inherited from ul
+.questions ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0;
+    
+}
+#option_menu{
+    text-align: left;
+    margin-left:100px; 
+}
+user agent stylesheet
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+Inherited from div.questions
+.questions {
+    font-weight: 700;
+    font-size: 1em;
+    padding-top: 1.45em;
+}
+#ques_menu {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#ques_menu li {
+    display: inline-block;
+    margin: 10px;
+    
+}
+
+Inherited from body.textpage.unselectable.ng-scope
+.unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+
+Pseudo ::before element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from body.textpage.unselectable.ng-scope
+.unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+Pseudo ::before element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

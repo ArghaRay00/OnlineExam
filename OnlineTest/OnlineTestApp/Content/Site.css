@@ -1,0 +1,142 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Login Page design*/
+.login-bg {
+    background: url(/Images/login-bg.jpg) center top no-repeat #2f4050;
+}
+
+.login-left {
+    padding: 110px 40px;
+}
+
+    .login-left span.small {
+        color: #fff;
+    }
+
+    .login-left .logo-name {
+        font-size: 50px;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+    }
+
+.login-right {
+    background: #fff;
+    position: absolute;
+    height: 100%;
+    right: 0;
+}
+
+    .login-right .CSC {
+        margin-bottom: 30px;
+    }
+
+    .login-right .loginscreen.middle-box {
+        margin: 0 40px;
+        padding: 100px 0 0;
+    }
+
+    .login-right .loginscreen.change-password.middle-box {
+        margin: 0 20px;
+        width: 400px;
+    }
+
+    .login-right .btn-primary {
+        padding: 8px 25px;
+    }
+
+.loginscreen.middle-box .field-validation-error {
+    color: #ed5565;
+}
+
+.change-password-info {
+    padding: 15px 15px 5px;
+    background: #efefef;
+    border-radius: 6px;
+}
+
+.login-panel {
+    margin-top: 25%;
+}
+
+.beta-note {
+    border-top: 1px solid #e7eaec;
+    left: 0;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0;
+    bottom: 32px;
+}
+
+.logo.logo-lg {
+    cursor: default;
+}
+
+
+.footer {
+    background: none repeat scroll 0 0 white;
+    border-top: 1px solid #e7eaec;
+    left: 0;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0;
+    margin: 60px 0 0;
+}
+
+    .footer.fixed_full {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 20px;
+        background: white;
+        border-top: 1px solid #e7eaec;
+    }
+
+    .footer.fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 20px;
+        background: white;
+        border-top: 1px solid #e7eaec;
+        margin-left: 220px;
+    }
+
+.block {
+    display: block;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h3,
+h4,
+h5 {
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.m-b {
+    margin-bottom: 15px;
+}

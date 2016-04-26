@@ -1,0 +1,39 @@
+﻿@model IEnumerable<OnlineTestEntities.Questionset>
+
+
+<h2>ListOfQuestionSet</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddQuestionSet")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionSetCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAlreadyUsed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionSetCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAlreadyUsed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditQuestionSet", new { id=item.QuestionSetId }) |
+            @Html.ActionLink("Details", "DetailQuestionSet", new { id=item.QuestionSetId }) |
+            @Html.ActionLink("Delete", "DeleteQuestionSet", new { id=item.QuestionSetId }) |
+            @Html.ActionLink("View Questions", "GetParticularQuestions", new { questionid = item.QuestionSetId })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("Back To Exam registration", "RegisterExamination", "Admin")

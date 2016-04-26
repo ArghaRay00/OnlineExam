@@ -1,0 +1,106 @@
+﻿@model OnlineTestApp.Models.QuestionModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeleteQuestion</title>
+</head>
+<body>
+    <div>
+        <h4>QuestionModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.QuestionId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuestionId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuestionName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuestionName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Option1)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Option1)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Option2)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Option2)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Option3)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Option3)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Option4)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Option4)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AnswerKey)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AnswerKey)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TechnicalQuestionSetID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TechnicalQuestionSetID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuantitativeQuestionSetID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuantitativeQuestionSetID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuestionSetId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuestionSetId)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

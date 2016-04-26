@@ -1,0 +1,68 @@
+﻿@model OnlineTestApp.Models.LoginViewModel
+
+@{
+     Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSC Online Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/site.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body class="login-bg">
+    <div class="row">
+        <div class="col-md-7 login-left text-right">
+            <h2 class="logo-name" style="color:white">CSC Online Test</h2>
+            <span class="block small">Version 1.0.0.0</span>
+        </div>
+        <div class="col-md-5 login-right">
+            <div class="middle-box loginscreen  animated fadeInDown">
+                <div>
+                    <div class="CSC">
+                        <img src="~/Images/csc-logo.jpg" />
+                    </div>
+                    <h3>Welcome to CSC Online Test Registration Form</h3>
+                    <p>Please login here:</p>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "User Name" })
+                        </div>
+                        <div class="form-group">
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "User Password" })
+                        </div>
+                        <div class="form-group">
+                            @Html.CheckBoxFor(model => model.RememberMe)  Remember Me
+                            @*@Html.LabelFor(model => model.RememberMe, new { @class = "control-label col-md-2" })*@ 
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" id="LoginSubmited" class="btn btn-primary block m-b">Login</button>
+                        </div>
+                    }
+                    <label class="text-danger no-bold" id="ErrorPasswordmsg" style="color:red">  @ViewBag.Error</label>
+                    <div class="form-group">
+                        @Html.ActionLink("New Register", "", "")
+
+                        @Html.ActionLink("Forget Password?", "", "", new { id = "frgtpasswrd" })
+                    </div>
+                    <div class="footer" style="margin:0; bottom:0;">
+                        <div>
+                            <strong>Copyright</strong> @DateTime.Now.Year CSC Software, Inc. All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+

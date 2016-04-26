@@ -1,0 +1,60 @@
+﻿@model IEnumerable<OnlineTestEntities.Question>
+
+@{
+    ViewBag.Title = "GetParticularQuestions";
+}
+
+<h2>GetParticularQuestions</h2>
+@Html.ActionLink("Create New", "Create")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QuestionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Option1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Option2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Option3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Option4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnswerKey)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Option1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Option2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Option3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Option4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnswerKey)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit" ,new { id=item.QuestionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionId })
+        </td>
+    </tr>
+}
+
+</table>

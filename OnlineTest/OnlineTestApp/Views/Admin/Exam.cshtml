@@ -1,0 +1,157 @@
+@model OnlineTestEntities.Question
+
+<!DOCTYPE html>
+<head>
+    <title>CSC OnlineTest</title>
+</head>
+<link href="~/Content/global.css" rel="stylesheet" type="text/css" />
+
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <img  title="CSC" src="~/Images/csc.png" alt="" width="110" height="70">
+        </div>
+        <div class="candidate_info">
+            Welcome,<strong>{{Profile.firstname}}{{Profile.lastname}}</strong><br/>Candidate ID:{{Profile.Candidate ID}}
+        </div>
+        <div class="timer">
+            <iframe src="http://free.timeanddate.com/countdown/i547tf5w/n438/cf100/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pcfff/tc66c/fn3/fs100/szw192/szh81/iso2016-03-20T00:59:59" allowTransparency="true" frameborder="0" width="300" height="81"></iframe>
+
+        </div>
+    </div>
+    <div class="body_container">
+        <div class="body_left">
+            <div class="question">
+                @Html.HiddenFor(model=>model.QuestionId)
+              Q1)  @Html.DisplayFor(model=>model.QuestionName)
+                <ol type="A" id="option_menu" > 
+                    <li><input type="radio" name="QuestionSet" value="1"/>@Html.DisplayFor(model=>model.Option1)</li>
+                    <li><input type="radio" name="QuestionSet" value="2">@Html.DisplayFor(model => model.Option2)</li>
+                    <li><input type="radio" name="QuestionSet" value="3">@Html.DisplayFor(model => model.Option3)</li>
+                    <li><input type="radio" name="QuestionSet" value="4">@Html.DisplayFor(model => model.Option4)</li>
+                </ol>
+            </div>
+            <div class="footer">
+                <div class="foot_img">
+                	<img  title="CSC" src="~/Images/review.png" alt="" width="45" height="30">&nbsp&nbsp Mark Question to review<br/>
+                </div>
+                <div class="foot_prev">
+                	<a  onclick="PrevQestion(@Model.QuestionId)" class="btn_prev">&lt; Prev Question</a>
+                </div>
+                <div class="foot_next">
+                    <a href="" ng-click="pat.nextQuestion()" class="btn_next">Next Question &gt;</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="body_right" >
+            <div class="qcategory">
+
+                <div><img  title="CSC" src="~/Images/review.png" alt="" width="45" height="30">&nbsp&nbsp Questions to review<br/></div>
+                <div><img  title="CSC" src="~/Images/answered.jpg" alt="" width="45" height="30">&nbsp&nbspAnswered Questions<br/></div>
+                <div><img  title="CSC" src="~/Images/unanswered.png" alt="" width="45" height="30">&nbsp&nbspUnanswered Questions<br/></div>
+            </div>
+            <div class="q_nums">
+                <div id="main2" class="numerical ng-scope" ng-controller="PatStandardController as pat">
+                    <div ng-show="pat.started" class="container">
+                        <div class="questions">
+                            <ul id="ques_menu">
+                                <!-- ngRepeat: question in pat.questions -->
+                                <li >
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding current">1</a>
+                                </li>
+                                <!-- end ngRepeat: question in pat.questions -->
+                                <li >
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">2</a>
+                                </li>
+                                <!-- end ngRepeat: question in pat.questions --><li >
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">3</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">4</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">5</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">6</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">7</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">8</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li >
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">9</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">10</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">11</a>
+
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">12</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">13</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">14</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">15</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">16</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">17</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">18</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">19</a>
+
+                                </li><!-- end ngRepeat: question in pat.questions --><li>
+                                    <a ng-class="{ 'completed' : pat.isQuestionAnswered($index), 'current': $index == pat.current }" ng-click="pat.goToQuestion($index)" href="javascript:void(0)" class="btn ng-binding">20</a>
+                                    </li>
+
+                            </ul>
+                        </div>
+					</div>
+                </div>                  
+            </div>
+        </div>
+    </div>
+ </div>
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+
+   
+    function PrevQestion(id) {
+        debugger;
+        var checked = $("input[name='QuestionSet']:checked").val()
+   
+        $.ajax({
+            url: "/Admin/Exam",
+            type:"POST",
+            data: {id:id,Options:checked},
+            success: function () { }
+
+        });
+
+        
+
+        
+
+    }
+</script>

@@ -1,0 +1,86 @@
+﻿@model OnlineTestEntities.LoginDetails
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSC Online Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/site.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body class="login-bg">
+     <div class="row">
+        <div class="col-md-7 login-left text-right">
+            <h2 class="logo-name" style="color:white">CSC Online Test</h2>
+             <span class="block small">Version 1.0.0.0</span>
+        </div>
+        <div class="col-md-5 login-right">
+            <div class="middle-box loginscreen  animated fadeInDown">
+                <div>
+                    <div class="CSC">
+                        <img src="~/Images/csc-logo.jpg" />
+                    </div>
+                    <h3>Welcome to CSC Online Test Registration Form</h3>
+                    <p>Please login here:</p>
+                      <div class="form-group">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", id = "UsrName", placeholder="User Email ID" })
+                        </div>
+                        <div class="form-group">
+                            @Html.PasswordFor(m => m.UserPassword, new { @class = "form-control", id = "UserPasswrd", placeholder = "User Password" })
+                            </div>
+                            <div class="form-group">
+                                @Html.DropDownListFor(m=>m.Roles, new SelectList(ViewBag.Roles,"Value","Text"),"------Please Select a Role------", new { id="SelectedRole", @style= "width:280px;height:32px"})
+                            </div>
+                        <div class="pull-left">
+                            <label class="text-danger no-bold" id="ErrorPasswordmsg" style="color:red">  @ViewBag.Error</label>
+                        </div>
+                        <div class="form-group">
+                               
+                                    @Html.CheckBox("chkRemember",false, new { id="Rememberchecked" })
+                            <label>
+                                Remember Me
+                            </label>
+                        </div>
+
+                        <input type="button" id="LoginSubmited" class="btn btn-primary block m-b" value="Login"/>
+                            
+
+                    <div class="form-group">
+                        @Html.ActionLink("New Register", "", "")
+
+                        @Html.ActionLink("Forget Password?","","",new { id="frgtpasswrd"})
+                    </div>
+                <div class="footer" style="margin:0; bottom:0;">
+                    <div>
+                        <strong>Copyright</strong> @DateTime.Now.Year CSC Software, Inc. All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    $("#LoginSubmited").click(function () {
+        var Details={
+            "UserName": $("#UsrName").val(),
+            "UserPassword": $("#UserPasswrd").val(),
+            "Roles.RolesName": $("#SelectedRole option:selected").text(),
+            "Roles.RolesID": $("#SelectedRole option:Selected").val()
+    }
+        $.ajax({
+            url: "Login/LoginView",
+            type: "POST",
+            data: JSON.stringify(Details),
+            contentType: 'application/json; charset=UTF-8',
+            success: function () { }
+        })
+    })
+
+</script>
