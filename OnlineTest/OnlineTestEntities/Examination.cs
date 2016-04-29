@@ -17,6 +17,7 @@ namespace OnlineTestEntities
         /// <summary>
         /// Date of Exam
         /// </summary>
+        public int ExamCode { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? ExaminationDate { get; set; }
