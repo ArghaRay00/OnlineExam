@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201604260943279_removing quatitative set id and technical set id.Designer.cs">
       <DependentUpon>201604260943279_removing quatitative set id and technical set id.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604271423589_made panelid null.cs" />
+    <Compile Include="Migrations\201604271423589_made panelid null.Designer.cs">
+      <DependentUpon>201604271423589_made panelid null.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604260943279_removing quatitative set id and technical set id.resx">
       <DependentUpon>201604260943279_removing quatitative set id and technical set id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604271423589_made panelid null.resx">
+      <DependentUpon>201604271423589_made panelid null.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

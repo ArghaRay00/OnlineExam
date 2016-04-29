@@ -32,19 +32,10 @@
                 @Html.ValidationMessageFor(model => model.EmployeeAddress, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EmployeeNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmployeeNumber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmployeeNumber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
+ <div class="form-group">
             @Html.LabelFor(model => model.CompanyId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CompanyId, new SelectList(employeeManager.GetAllCompanys(), "CompanyName", "CompanyId"), "---Select a comapany---")
+                @Html.DropDownListFor(model => model.CompanyId, new SelectList(employeeManager.GetAllCompanys(), "CompanyId", "CompanyName"), "---Select a Company")
                 @Html.ValidationMessageFor(model => model.CompanyId, "", new { @class = "text-danger" })
             </div>
         </div>

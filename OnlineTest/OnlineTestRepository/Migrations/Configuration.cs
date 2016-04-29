@@ -4,6 +4,8 @@ namespace OnlineTestRepository.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using OnlineTestEntities;
+    using System.Collections.Generic;
 
     internal sealed class Configuration : DbMigrationsConfiguration<OnlineTestRepository.ExamDbContext>
     {
@@ -26,6 +28,7 @@ namespace OnlineTestRepository.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+          
         }
     }
 }

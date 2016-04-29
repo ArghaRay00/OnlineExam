@@ -25,6 +25,13 @@ namespace OnlineTestBL
                 return companyRepo.GetAll();
             }
         }
+        public void CreateCompany(Company company)
+        {
+            using (var repository = new CommonRepository<Company>())
+            {
+                repository.Create(company);
+            }
+        }
 
 
         public IEnumerable<Location> GetAllLocations()

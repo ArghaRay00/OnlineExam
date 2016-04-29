@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollegeManager.cs" />
+    <Compile Include="CompanyManager.cs" />
     <Compile Include="EmployeeManager.cs" />
     <Compile Include="ExaminationManager.cs" />
     <Compile Include="HrManager.cs" />

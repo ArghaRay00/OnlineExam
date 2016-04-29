@@ -14,7 +14,7 @@ namespace OnlineTestEntities
         /// <summary>
         /// ID
         /// </summary>
-        public int TechnicalpanelId { get; set; }
+        public int? TechnicalpanelId { get; set; }
 
         public string TechnicalPanelCode { get; set; }
 

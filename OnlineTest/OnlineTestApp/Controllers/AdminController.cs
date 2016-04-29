@@ -11,6 +11,7 @@ using Question = OnlineTestEntities.Question;
 
 namespace OnlineTestApp.Controllers
 {
+    
     public class AdminController : Controller
     {
        
@@ -229,7 +230,19 @@ namespace OnlineTestApp.Controllers
 
             return View("Index");
         }
+        public ActionResult CreateCompany()
+        {
+            return View();
 
+        }
+        [HttpPost]
+        public ActionResult CreateCompany(Company company)
+        {
+            var manager = new CompanyManager();
+            manager.CreateCompany(company);
+            return View("Index");
+
+        }
         
     }
 }
