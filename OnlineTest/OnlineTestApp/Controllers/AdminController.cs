@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using AutoMapper;
 using OnlineTestApp.Models;
 using OnlineTestBL;
@@ -232,11 +233,13 @@ namespace OnlineTestApp.Controllers
 
             return View("Index");
         }
+        
         public ActionResult CreateCompany()
         {
             return View();
 
         }
+        
         [HttpPost]
         public ActionResult CreateCompany(Company company)
         {
@@ -245,18 +248,48 @@ namespace OnlineTestApp.Controllers
             return View("Index");
 
         }
-        public ActionResult AssignPanel()
+        
+        //I renamed it as the previous name didnt make sense
+
+        public ActionResult AssignPanelToExam()
         {
             return View();
         }
+
         [HttpPost]
-    public ActionResult Assignpanel(int id)
+        public ActionResult AssignPanelToExam(AssignPanel assignPanel)
         {
             var pManager = new PanelManager();
-            var examid = pManager.GetExam(id);
-            return RedirectToAction("Index");
+            var examobj = pManager.GetExam(assignPanel.ExamId);
+
+            ViewBag.ExamObj = examobj;
+            return RedirectToAction("CreatePanel");
         }
 
-        
+        public ActionResult CreatePanel(int id)
+        {
+            //Create the view for this method
+
+            Examination examObj = ViewBag.ExamObj;
+            var empManager = new EmployeeManager();
+
+            var employeesOfLocation = empManager.GetEmployeesBylocation(examObj.LocationId);
+
+            ViewBag.employees = employeesOfLocation;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreatePanel(Technicalpanel panel)
+        {
+
+            //Save into DB
+
+            return View("Index");
+        }
+
+
+
     }
 }

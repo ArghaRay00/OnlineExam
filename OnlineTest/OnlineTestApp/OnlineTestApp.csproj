@@ -130,7 +130,7 @@
     <Content Include="Views\Admin\CreateQuestionSet.cshtml" />
     <Content Include="Views\Admin\DeleteQuestion.cshtml" />
     <Content Include="Views\Admin\CreateCompany.cshtml" />
-    <Content Include="Views\Admin\AssignPanel.cshtml" />
+    <Content Include="Views\Admin\AssignPanelToExam.cshtml" />
     <None Include="Views\Admin\Exam.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
