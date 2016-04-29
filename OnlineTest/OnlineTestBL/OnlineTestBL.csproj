@@ -54,6 +54,7 @@
     <Compile Include="HrManager.cs" />
     <Compile Include="LocationManager.cs" />
     <Compile Include="LoginManager.cs" />
+    <Compile Include="PanelManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionSetManager.cs" />
     <Compile Include="StudentManager.cs" />

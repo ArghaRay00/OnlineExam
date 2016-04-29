@@ -17,5 +17,14 @@ namespace OnlineTestBL
                 repository.Create(College);
             }
         }
+
+        public College GetCollege(int collegeID)
+        {
+            using (var repository = new CommonRepository<College>())
+            {
+               return repository.Get(collegeID);
+            }
+        }
+
     }
 }
