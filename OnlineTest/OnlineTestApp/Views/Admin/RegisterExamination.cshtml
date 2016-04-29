@@ -64,13 +64,13 @@
         </div>
 
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.TechnicalPanleId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.TechnicalPanleId, new SelectList(examinationManager.GetAllTechnicalpanels(), "TechnicalpanelId", "TechnicalPanelCode"), "---Select A Panel---")
                 @Html.ValidationMessageFor(model => model.TechnicalPanleId, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
 
         

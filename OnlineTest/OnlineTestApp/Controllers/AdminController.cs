@@ -53,7 +53,9 @@ namespace OnlineTestApp.Controllers
         [HttpPost]
         public ActionResult RegisterExamination(Examination Examination)
         {
-            Examination.LocationId = Examination.College.LocationId; //Exam location would be same as College - Assumption
+            var cManager = new CollegeManager();
+            var college=cManager.GetCollege(Examination.CollegeId);
+            Examination.LocationId = college.LocationId; //Exam location would be same as College - Assumption
             var eManager = new ExaminationManager();
             eManager.CreateExamination(Examination);
             return View("Index");
