@@ -31,7 +31,13 @@ namespace OnlineTestRepository
             using (var context = new ExamDbContext())
             {
                 IRepository<T> repository = new GenericRepository<T>(context);
-                return repository.All().ToList();
+
+                if (repository.All().Any())
+                {
+                    return repository.All().ToList();
+                }
+
+                return new List<T>();
             }
         }
 

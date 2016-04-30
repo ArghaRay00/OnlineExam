@@ -256,7 +256,7 @@ namespace OnlineTestApp.Controllers
             var pManager = new PanelManager();
             var examobj = pManager.GetExam(assignPanel.ExamId);
 
-            ViewBag.ExamObj = examobj;
+            TempData["ExamObj"] = examobj;
             
             return RedirectToAction("CreatePanel");
         }
@@ -265,7 +265,8 @@ namespace OnlineTestApp.Controllers
         {
             //Create the view for this method
 
-            Examination examObj = ViewBag.ExamObj;
+            Examination examObj = TempData["ExamObj"] as Examination;
+
             var empManager = new EmployeeManager();
 
             var employeesOfLocation = empManager.GetEmployeesBylocation(examObj.LocationId);

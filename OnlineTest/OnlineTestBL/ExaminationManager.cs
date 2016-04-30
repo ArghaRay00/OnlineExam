@@ -16,6 +16,17 @@ namespace OnlineTestBL
             {
                 repository.Create(Examination);
             }
+
+            if (Examination.QuestionsetId != null)
+            {
+                using (var repository = new CommonRepository<Questionset>())
+                {
+                    var questionSet = repository.Get(Examination.QuestionsetId.Value);
+                    questionSet.IsAlreadyUsed = true;
+                    repository.Update(questionSet);
+                }
+            }
+
         }
         
         public IEnumerable<College> GetAllColleges()
@@ -25,6 +36,7 @@ namespace OnlineTestBL
                 return collegeRepo.GetAll();
             }
         }
+
         public IEnumerable<Technicalpanel> GetAllTechnicalpanels()
         {
             using (var technicalRepo = new CommonRepository<Technicalpanel>())
@@ -32,6 +44,16 @@ namespace OnlineTestBL
                 return technicalRepo.GetAll();
             }
         }
+
+        public IEnumerable<Questionset> GetUnusedQuestionSet()
+        {
+            using (var questionsetRepo = new CommonRepository<Questionset>())
+            {
+                return questionsetRepo.GetAll().Where(qset => !qset.IsAlreadyUsed);
+            }
+        }
+
+
 
     }
 }
