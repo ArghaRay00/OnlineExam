@@ -279,15 +279,17 @@ namespace OnlineTestApp.Controllers
 
                 PanelList.Add(emp);
             }
-            //ViewBag.employees = employeesOfLocation;
+            ViewBag.employees = PanelList;
             
-            return View(PanelList);
+            return View();
         }
 
         [HttpPost]
-        public ActionResult CreatePanel(Technicalpanel panel)
+        public ActionResult CreatePanel(List<Technicalpanel> panel)
         {
-
+            var pManager = new PanelManager();
+            pManager.CreatePanel(List<panel>);
+           
             //Save into DB
 
             return View("Index");

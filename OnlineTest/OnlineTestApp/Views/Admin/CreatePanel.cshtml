@@ -1,8 +1,28 @@
-﻿
+﻿@model List<OnlineTestApp.Models.PanelCheckboxModel>
 @{
-    ViewBag.Title = "CreatePanel";
-    
+    ViewBag.Title = "Index";
 }
+<h2>Index</h2>
 
-<h2>CreatePanel</h2>
+@using (Html.BeginForm())
+{
+    for (var i = 0; i < ViewBag.PanelList; i++)
+    {
+        <table>
+            <tr>
+                <td>
+                    @Html.HiddenFor(e=>e[i].EmployeeId)
+                    @Html.DisplayFor(e=>e[i].EmployeeName)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(it => it[i].Checked, new { Style = "vertical-          align:3px}" })
+                </td>
+            </tr>
+        </table>
+
+    }
+
+    <input id="Submit1" type="submit" value="submit" />
+
+}  
 

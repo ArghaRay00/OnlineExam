@@ -23,5 +23,13 @@ namespace OnlineTestBL
                 return repository.Get(examid);
             }
         }
+       public void CreatePanel(Technicalpanel panel)
+        {
+            using (var repository = new CommonRepository<Technicalpanel>())
+            {
+                repository.Create(panel);
+            }
+
+        }
     }
 }
