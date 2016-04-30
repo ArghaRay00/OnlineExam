@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTestEntities
 {
-    public class Hr
+    public class Hr :IDomainModel
     {
         /// <summary>
         /// Name of Hr
@@ -25,6 +25,10 @@ namespace OnlineTestEntities
         /// </summary>
         [ForeignKey("CompanyId")]
         public virtual Company Company { get; set; }
-  
+
+        public int Id
+        {
+            get { return HrId; }
+        }
     }
 }

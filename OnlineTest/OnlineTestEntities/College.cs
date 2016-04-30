@@ -8,9 +8,9 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineTestEntities
+namespace OnlineTestEntities 
 {
-    public class College
+    public class College :IDomainModel
     {
         [Key]
         public int CollegeId { get; set; }
@@ -31,5 +31,10 @@ namespace OnlineTestEntities
 
         [ForeignKey("LocationId")]
         public virtual Location Location { get; set; }
+
+        public int Id
+        {
+            get { return CollegeId; }
+        }
     }
 }

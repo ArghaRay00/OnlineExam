@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTestEntities
 {
-    public class Technicalpanel
+    public class Technicalpanel :IDomainModel
     {
 
         public Technicalpanel()
@@ -14,7 +14,8 @@ namespace OnlineTestEntities
         /// <summary>
         /// ID
         /// </summary>
-        public int? TechnicalpanelId { get; set; }
+        [Key]
+        public int TechnicalpanelId { get; set; }
 
         public string TechnicalPanelCode { get; set; }
 
@@ -27,5 +28,9 @@ namespace OnlineTestEntities
         ///// Exam to which the Technical Panel belongs to
         ///// </summary>
         //public virtual Examination Examination { get; set; }
+        public int Id
+        {
+            get { return TechnicalpanelId; }
+        }
     }
 }

@@ -256,7 +256,7 @@ namespace OnlineTestApp.Controllers
             var pManager = new PanelManager();
             var examobj = pManager.GetExam(assignPanel.ExamId);
 
-            TempData["ExamObj"] = examobj;
+            Session["ExamObj"] = examobj;
             
             return RedirectToAction("CreatePanel");
         }
@@ -265,7 +265,7 @@ namespace OnlineTestApp.Controllers
         {
             //Create the view for this method
 
-            Examination examObj = TempData["ExamObj"] as Examination;
+            Examination examObj = Session["ExamObj"] as Examination;
 
             var empManager = new EmployeeManager();
 
@@ -279,18 +279,53 @@ namespace OnlineTestApp.Controllers
 
                 PanelList.Add(emp);
             }
-            //ViewBag.employees = employeesOfLocation;
             
             return View(PanelList);
         }
 
         [HttpPost]
-        public ActionResult CreatePanel(Technicalpanel panel)
+        public ActionResult CreatePanel(List<PanelCheckboxModel> employeeList)
         {
 
             //Save into DB
+            Examination examObj = Session["ExamObj"] as Examination;
+            var selectedEmployee = employeeList.Where(e => e.Checked);
 
-            return View("Index");
+            if (examObj != null)
+            {
+
+                var technicalpanelManager = new PanelManager();
+
+                var employees = technicalpanelManager.GetEmployeesBylocation(examObj.LocationId);
+
+                var technicalPanel = new Technicalpanel();
+
+                foreach (var emp in selectedEmployee)
+                {
+                    var empObj = employees.FirstOrDefault(x => x.EmployeeId == emp.EmployeeId);
+
+                    if (empObj != null)
+                    {
+                        technicalPanel.Employees.Add(empObj);
+                    }
+
+                }
+                
+                var panelDTO = technicalpanelManager.CreateAndGetTechnicalPanel(technicalPanel);
+
+                examObj.TechnicalPanleId=panelDTO.TechnicalpanelId;
+
+                var manager = new ExaminationManager();
+                manager.Update(examObj);
+
+                return View("Index");
+            }
+
+            else
+            {
+                return View("Error");
+            }
+            
         }
 
 

@@ -1,6 +1,6 @@
 ﻿namespace OnlineTestEntities
 {
-    public class Marks
+    public class Marks 
     {
         public int MarksId { get; set; }
         public int MarksApti { get; set; }

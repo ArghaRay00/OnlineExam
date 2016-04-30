@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTestEntities
 {
-   public class Location
+   public class Location :IDomainModel
     {   [Key]
         public int LocationId { get; set; }
 
@@ -18,5 +18,10 @@ namespace OnlineTestEntities
         public virtual ICollection<Examination> Examinations { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
         public virtual ICollection<College> Colleges { get; set; }
+
+        public int Id
+        {
+            get { return LocationId; }
+        }
     }
 }

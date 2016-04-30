@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OnlineTestEntities;
 
 namespace OnlineTestRepository
 {
@@ -14,6 +15,17 @@ namespace OnlineTestRepository
                 IRepository<T> repository = new GenericRepository<T>(context);
                 repository.Create(obj);
                 repository.Save();
+            }
+        }
+
+        public T CreateAndGet(T obj)
+        {
+            using (var context = new ExamDbContext())
+            {
+                IRepository<T> repository = new GenericRepository<T>(context);
+                var objDTO = repository.Create(obj);
+                repository.Save();
+                return objDTO;
             }
         }
 
@@ -87,5 +99,7 @@ namespace OnlineTestRepository
         {
             //throw new NotImplementedException();
         }
+
+      
     }
 }

@@ -44,9 +44,15 @@ namespace OnlineTestBL
 
        public IEnumerable<Employee> GetEmployeesBylocation(int locationId)
        {
-           using (var locationRepo = new CommonRepository<Employee>())
+           using (var locationRepo = new EmployeeTechnicalPanelRepo())
            {
-               return locationRepo.GetAll().Where(e=>e.LocationId==locationId).ToList();
+               var list = locationRepo.GetAllEmployees();
+
+               if (list.Any())
+               {
+                   return list.Where(e => e.LocationId == locationId).ToList();
+               }
+               return new List<Employee>();
            }
        }
     }

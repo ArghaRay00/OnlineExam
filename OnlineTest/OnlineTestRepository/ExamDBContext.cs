@@ -58,8 +58,17 @@ namespace OnlineTestRepository
                     m.ToTable("UserRoles");
                     m.MapLeftKey("UserId");
                     m.MapRightKey("RoleId");
-                });            
+                });
 
+            modelBuilder.Entity<Technicalpanel>()
+                .HasMany<Employee>(e => e.Employees)
+                .WithMany(s => s.TechnicalPanels)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("TechnicalpanelRefId");
+                    cs.MapRightKey("EmployeeRefId");
+                    cs.ToTable("TechnicalPanelEmployee");
+                });
 
             base.OnModelCreating(modelBuilder);
 

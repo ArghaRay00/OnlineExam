@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTestEntities
 {
-    public class Employee
+    public class Employee : IDomainModel
     {
         /// <summary>
         /// ID of the Employee
@@ -43,6 +43,11 @@ namespace OnlineTestEntities
         public virtual Location Location { get; set; }
 
         public virtual ICollection<Technicalpanel> TechnicalPanels { get; set; }
+
+        public int Id
+        {
+            get { return EmployeeId; }
+        }
     }
 }
  

@@ -17,7 +17,6 @@ namespace OnlineTestRepository
             this._entitySet = Context.Set<TObject>();
         }
 
-      
         protected DbSet<TObject> DbSet
         {
             get
@@ -95,6 +94,11 @@ namespace OnlineTestRepository
         public virtual int Count()
         {
             return DbSet.Count();
+        }
+
+        public DbContext DbContext
+        {
+            get { return _context; }
         }
 
 

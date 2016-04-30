@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonRepository.cs" />
+    <Compile Include="EmployeeTechnicalPanelRepo.cs" />
     <Compile Include="ExamDBContext.cs" />
     <Compile Include="GenericRepository.cs" />
     <Compile Include="IRepository.cs" />
@@ -70,6 +71,14 @@
     <Compile Include="Migrations\201604300651086_made examcode string.cs" />
     <Compile Include="Migrations\201604300651086_made examcode string.Designer.cs">
       <DependentUpon>201604300651086_made examcode string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604301901515_fixedTechnicalPanel.cs" />
+    <Compile Include="Migrations\201604301901515_fixedTechnicalPanel.Designer.cs">
+      <DependentUpon>201604301901515_fixedTechnicalPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604302007450_fixedTechnicalPanel_1.cs" />
+    <Compile Include="Migrations\201604302007450_fixedTechnicalPanel_1.Designer.cs">
+      <DependentUpon>201604302007450_fixedTechnicalPanel_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604300651086_made examcode string.resx">
       <DependentUpon>201604300651086_made examcode string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604301901515_fixedTechnicalPanel.resx">
+      <DependentUpon>201604301901515_fixedTechnicalPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604302007450_fixedTechnicalPanel_1.resx">
+      <DependentUpon>201604302007450_fixedTechnicalPanel_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

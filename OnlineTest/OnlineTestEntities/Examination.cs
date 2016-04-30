@@ -6,7 +6,7 @@ using System.Data.Entity.Migrations.Model;
 
 namespace OnlineTestEntities
 {
-    public class Examination
+    public class Examination :IDomainModel
     {
         /// <summary>
         /// ID 
@@ -61,5 +61,10 @@ namespace OnlineTestEntities
         public virtual Location Location { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+
+        public int Id
+        {
+            get { return ExaminationId; }
+        }
     }
 }

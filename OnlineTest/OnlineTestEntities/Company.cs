@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineTestEntities
 {
-    public class Company
+    public class Company : IDomainModel
     {
         /// <summary>
         /// Name of the Company
@@ -26,5 +26,10 @@ namespace OnlineTestEntities
         /// Gets or Sets the List of Employees
         /// </summary>
         public virtual ICollection<Employee> Employees { get; set; }
-   }
+
+        public int Id
+        {
+            get { return CompanyId; }
+        }
+    }
 }

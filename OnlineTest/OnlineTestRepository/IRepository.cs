@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq.Expressions;
 
 namespace OnlineTestRepository
@@ -22,5 +23,7 @@ namespace OnlineTestRepository
         void Delete(T t);
         void Save();
         int Count();
+
+        DbContext DbContext { get;}
     }
 }

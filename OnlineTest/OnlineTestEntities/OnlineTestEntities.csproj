@@ -51,6 +51,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Examination.cs" />
     <Compile Include="Hr.cs" />
+    <Compile Include="IDomainModel.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Marks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

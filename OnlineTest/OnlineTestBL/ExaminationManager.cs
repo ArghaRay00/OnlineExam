@@ -53,6 +53,13 @@ namespace OnlineTestBL
             }
         }
 
+        public void Update(Examination exam)
+        {
+            using (var repository = new CommonRepository<Examination>())
+            {
+                repository.Update(exam);
+            }
+        }
 
 
     }
