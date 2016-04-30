@@ -46,7 +46,7 @@ namespace OnlineTestBL
        {
            using (var locationRepo = new CommonRepository<Employee>())
            {
-               return locationRepo.GetAll().Where(e => e.LocationId == locationId).ToList();
+               return locationRepo.GetAll().Where(e=>e.LocationId==locationId).ToList();
            }
        }
     }

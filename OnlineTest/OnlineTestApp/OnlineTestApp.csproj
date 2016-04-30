@@ -131,6 +131,7 @@
     <Content Include="Views\Admin\DeleteQuestion.cshtml" />
     <Content Include="Views\Admin\CreateCompany.cshtml" />
     <Content Include="Views\Admin\AssignPanelToExam.cshtml" />
+    <Content Include="Views\Admin\CreatePanel.cshtml" />
     <None Include="Views\Admin\Exam.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -157,6 +158,7 @@
     <Compile Include="Models\OnlineTestAppContext.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\PanelCheckboxModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Models\QuestionSet.cs" />
     <Compile Include="Models\Test.cs" />

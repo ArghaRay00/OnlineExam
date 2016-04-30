@@ -1,5 +1,6 @@
 ﻿@model OnlineTestApp.Models.AssignPanel
 @using OnlineTestApp.Models
+
 @using OnlineTestBL
 @{
     ViewBag.Title = "AssignPanel";
@@ -7,7 +8,7 @@
     var examDTOs = PanelManager.GetAllExam();
 
     List<AssignPanel> examsForPanelChoice = new List<AssignPanel>();
-     
+   
     foreach (var examDTO in examDTOs)
     {
         var exam = new AssignPanel();

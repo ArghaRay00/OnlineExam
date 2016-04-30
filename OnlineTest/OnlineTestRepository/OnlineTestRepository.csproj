@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201604290439161_exam code addition.Designer.cs">
       <DependentUpon>201604290439161_exam code addition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604300651086_made examcode string.cs" />
+    <Compile Include="Migrations\201604300651086_made examcode string.Designer.cs">
+      <DependentUpon>201604300651086_made examcode string.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604290439161_exam code addition.resx">
       <DependentUpon>201604290439161_exam code addition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604300651086_made examcode string.resx">
+      <DependentUpon>201604300651086_made examcode string.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

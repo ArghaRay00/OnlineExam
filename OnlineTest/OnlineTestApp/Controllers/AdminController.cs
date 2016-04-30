@@ -257,10 +257,11 @@ namespace OnlineTestApp.Controllers
             var examobj = pManager.GetExam(assignPanel.ExamId);
 
             ViewBag.ExamObj = examobj;
+            
             return RedirectToAction("CreatePanel");
         }
 
-        public ActionResult CreatePanel(int id)
+        public ActionResult CreatePanel()
         {
             //Create the view for this method
 
@@ -268,10 +269,18 @@ namespace OnlineTestApp.Controllers
             var empManager = new EmployeeManager();
 
             var employeesOfLocation = empManager.GetEmployeesBylocation(examObj.LocationId);
+            List<PanelCheckboxModel> PanelList= new List<PanelCheckboxModel>();
+            foreach (var employees in employeesOfLocation)
+            {
+                var emp = new PanelCheckboxModel();
+                emp.EmployeeId=employees.EmployeeId;
+                emp.EmployeeName = employees.EmployeeName;
 
-            ViewBag.employees = employeesOfLocation;
-
-            return View();
+                PanelList.Add(emp);
+            }
+            //ViewBag.employees = employeesOfLocation;
+            
+            return View(PanelList);
         }
 
         [HttpPost]
