@@ -15,9 +15,10 @@ namespace OnlineTestEntities
         public int ExaminationId { get; set; }
 
         /// <summary>
-        /// Date of Exam
+        /// Exam Code
         /// </summary>
-        public int ExamCode { get; set; }
+        public string ExamCode { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? ExaminationDate { get; set; }

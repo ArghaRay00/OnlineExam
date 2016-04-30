@@ -118,17 +118,11 @@ namespace OnlineTestApp.Controllers
             return View("Index");
         }
     
-       
-
-       
-
-       
-
-       
         public ActionResult CreateQuestionSet()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult CreateQuestionSet(QuestionSet questionSetModel)
         {

@@ -1,8 +1,21 @@
 ﻿@model OnlineTestApp.Models.AssignPanel
+@using OnlineTestApp.Models
 @using OnlineTestBL
 @{
     ViewBag.Title = "AssignPanel";
     var PanelManager = new PanelManager();
+    var examDTOs = PanelManager.GetAllExam();
+
+    List<AssignPanel> examsForPanelChoice = new List<AssignPanel>();
+     
+    foreach (var examDTO in examDTOs)
+    {
+        var exam = new AssignPanel();
+        exam.ExamCode = examDTO.ExamCode;
+        exam.ExamId = examDTO.ExaminationId;
+
+        examsForPanelChoice.Add(exam);
+    }
 }
 
 <h2>AssignPanel</h2>
@@ -18,7 +31,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ExamId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ExamId, new SelectList(PanelManager.GetAllExam(),"ExamId"), "---Select A Exam---")
+                @Html.DropDownListFor(model => model.ExamId, new SelectList(examsForPanelChoice, "ExamId", "ExamCode"), "---Select A Exam---")
                 @Html.ValidationMessageFor(model => model.ExamId, "", new { @class = "text-danger" })
             </div>
         </div>

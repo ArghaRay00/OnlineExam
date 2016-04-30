@@ -8,5 +8,7 @@ namespace OnlineTestApp.Models
     public class AssignPanel
     {
         public int ExamId { get; set; }
+
+        public string ExamCode { get; set; }
     }
 }
