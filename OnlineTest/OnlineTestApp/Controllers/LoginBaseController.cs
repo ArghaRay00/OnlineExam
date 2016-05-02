@@ -65,11 +65,11 @@ namespace OnlineTestApp.Controllers
 
                         if (roles.Contains("HR"))
                         {
-                            return RedirectToAction("panel", "Admin");
+                            return RedirectToAction("RegisterExamination", "Admin");
                         }
                         else if (roles.Contains("Technical panelist"))
                         {
-                            return RedirectToAction("", "");
+                            return RedirectToAction("AssignPanelToExam", "Admin");
                         }
                         else
                         {

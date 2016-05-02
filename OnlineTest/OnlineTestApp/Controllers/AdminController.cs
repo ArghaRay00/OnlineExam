@@ -257,7 +257,7 @@ namespace OnlineTestApp.Controllers
             var examobj = pManager.GetExam(assignPanel.ExamId);
 
             Session["ExamObj"] = examobj;
-            
+
             return RedirectToAction("CreatePanel");
         }
 
@@ -270,16 +270,16 @@ namespace OnlineTestApp.Controllers
             var empManager = new EmployeeManager();
 
             var employeesOfLocation = empManager.GetEmployeesBylocation(examObj.LocationId);
-            List<PanelCheckboxModel> PanelList= new List<PanelCheckboxModel>();
+            List<PanelCheckboxModel> PanelList = new List<PanelCheckboxModel>();
             foreach (var employees in employeesOfLocation)
             {
                 var emp = new PanelCheckboxModel();
-                emp.EmployeeId=employees.EmployeeId;
+                emp.EmployeeId = employees.EmployeeId;
                 emp.EmployeeName = employees.EmployeeName;
 
                 PanelList.Add(emp);
             }
-            
+
             return View(PanelList);
         }
 
@@ -310,10 +310,10 @@ namespace OnlineTestApp.Controllers
                     }
 
                 }
-                
+
                 var panelDTO = technicalpanelManager.CreateAndGetTechnicalPanel(technicalPanel);
 
-                examObj.TechnicalPanleId=panelDTO.TechnicalpanelId;
+                examObj.TechnicalPanleId = panelDTO.TechnicalpanelId;
 
                 var manager = new ExaminationManager();
                 manager.Update(examObj);
@@ -325,7 +325,7 @@ namespace OnlineTestApp.Controllers
             {
                 return View("Error");
             }
-            
+
         }
 
 
