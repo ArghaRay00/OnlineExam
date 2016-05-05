@@ -23,5 +23,6 @@ namespace OnlineTestApp.Models
         public string StudentSchool { get; set; }
 
         public int CollegeID { get; set; }
+        public string ExamCode { get; set; }
     }
 }

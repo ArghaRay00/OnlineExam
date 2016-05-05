@@ -155,6 +155,7 @@
     <Compile Include="Models\BaseViewPage.cs" />
     <Compile Include="Models\CustomPrincipal.cs" />
     <Compile Include="Models\ExamDetails.cs" />
+    <Compile Include="Models\ExamTakingModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\OnlineTestAppContext.cs">
       <SubType>Code</SubType>
@@ -200,6 +201,7 @@
     <Content Include="Views\Questions\DetailQuestionSet.cshtml" />
     <Content Include="Views\Questions\DeleteQuestionSet.cshtml" />
     <Content Include="Views\LoginBase\LoginView.cshtml" />
+    <Content Include="Views\Exam\ExamTaking.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

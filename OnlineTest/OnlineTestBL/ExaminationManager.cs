@@ -60,7 +60,31 @@ namespace OnlineTestBL
                 repository.Update(exam);
             }
         }
+        public Examination GetQuestionid(int QuestionsetId)
+        {
+            using (var repository = new CommonRepository<Examination>())
+            {
+                return repository.Get(QuestionsetId);
+            }
+        }
+        public Examination GetExaminationbyCode(string examinationCode)
+        {
+            using (var repository = new CommonRepository<Examination>())
+            {
+                return repository.GetAll().FirstOrDefault(e => e.ExamCode == examinationCode);
+            }
+        }
+
+
+        public int CreateAndGetMarksId(Marks marksobject)
+        {
+            using (var repository = new CommonRepository<Marks>())
+            {
+                var marksobjDTO = repository.CreateAndGet(marksobject);
+                return marksobjDTO.MarksId;
+            }
+        }
+    }
 
 
     }
-}

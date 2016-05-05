@@ -13,11 +13,11 @@ namespace OnlineTestBL
     /// </summary>
     public class StudentManager
     {
-        public void CreateStudent(Student student)
+        public Student CreateStudent(Student student)
         {
             using (var repository = new CommonRepository<Student>())
             {
-               repository.Create(student);
+              return repository.CreateAndGet(student);
             }
         }
 
@@ -28,6 +28,22 @@ namespace OnlineTestBL
                 return collegeRepo.GetAll();
             }
         }
-        
+
+        public Student GetStudent(int studentID)
+        {
+            using (var repository = new CommonRepository<Student>())
+            {
+                return repository.Get(studentID);
+            }
+        }
+
+        public void UpdateStudent(Student student)
+        {
+            using (var repository = new CommonRepository<Student>())
+            {
+                repository.Update(student);
+            }
+        }
+
     }
 }

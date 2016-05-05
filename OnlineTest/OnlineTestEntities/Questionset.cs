@@ -17,16 +17,12 @@ namespace OnlineTestEntities
         /// <summary>
         /// Gets or sets the List of Technical Questions
         /// </summary>
-        public virtual ICollection<Question> TechnicalQuestions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
 
         /// <summary>
         /// Gets or sets the list of Quantative Questions
         /// </summary>
-        public virtual ICollection<Question> QuantitativeQuestions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets whether the Question Set is used or not
-        /// </summary>
+  
         public bool IsAlreadyUsed { get; set; }
     }
 }
