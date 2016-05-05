@@ -1,0 +1,25 @@
+﻿@model IEnumerable<OnlineTestApp.Models.ExamTakingModel>
+
+@{
+    ViewBag.Title = "ExamTaking";
+}
+
+<h2>ExamTaking</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@foreach(var item in Model)
+{
+    Html.Label(item.Question.QuestionName);
+    <ol type="A" id="option_menu">
+        <li><input type="radio" name="QuestionSet" value="1">@Html.Label(item.Question.Option1)</li>
+        <li><input type="radio" name="QuestionSet" value="2">@Html.Label(item.Question.Option2)</li>
+        <li><input type="radio" name="QuestionSet" value="3">@Html.Label(item.Question.Option3)</li>
+        <li><input type="radio" name="QuestionSet" value="4">@Html.Label(item.Question.Option4)</li>
+    </ol>
+
+}
+
