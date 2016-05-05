@@ -12,16 +12,19 @@
     for (int i = 0; i < Model.Count(); i++)
     {
         <div id="@Model[i].Question.QuestionId">
-            Html.LabelFor(x => x[i].Question.QuestionName);
+            @Html.HiddenFor(x=>x[i].QuestionId,Model[i].QuestionId)
+            @Html.DisplayTextFor(x => x[i].Question.QuestionName)
             <ol type="A" id="option_menu">
-                <li>@Html.RadioButtonFor(x => x[i].Question.Option1, Model[i].Choice)</li>
-                <li>@Html.RadioButtonFor(x => x[i].Question.Option2, Model[i].Choice)</li>
-                <li>@Html.RadioButtonFor(x => x[i].Question.Option3, Model[i].Choice)</li>
-                <li>@Html.RadioButtonFor(x => x[i].Question.Option4, Model[i].Choice)</li>
+                <li>@Html.DisplayTextFor(m => m[i].Question.Option1) @Html.RadioButtonFor(x => x[i].Choice, 1)</li>
+                <li>@Html.DisplayTextFor(m => m[i].Question.Option2) @Html.RadioButtonFor(x => x[i].Choice, 2)</li>
+                <li>@Html.DisplayTextFor(m => m[i].Question.Option3) @Html.RadioButtonFor(x => x[i].Choice, 3)</li>
+                <li>@Html.DisplayTextFor(m => m[i].Question.Option4) @Html.RadioButtonFor(x => x[i].Choice, 4)</li>
             </ol>
         </div>
      
        <hr/>
     }
+    
+    <input type="submit"/>
 
 }

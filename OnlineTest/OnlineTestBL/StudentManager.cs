@@ -45,5 +45,14 @@ namespace OnlineTestBL
             }
         }
 
+        public void UpdateStudentsMarks(int studentID,int marksId)
+        {
+            using (var repository = new CommonRepository<Student>())
+            {
+                var student = repository.Get(studentID);
+                student.MarksId = marksId;
+                repository.Update(student);
+            }
+        }
     }
 }

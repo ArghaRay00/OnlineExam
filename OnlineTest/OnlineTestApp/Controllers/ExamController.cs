@@ -63,7 +63,7 @@ namespace OnlineTestApp.Controllers
             foreach (var question in ExaminationDTO.Questionset.Questions)
             {
                 var examTakingModel = new ExamTakingModel();
-                examTakingModel.Question = question;
+                examTakingModel.QuestionId = question.QuestionId;
                 examtakingModels.Add(examTakingModel);
             }
 
@@ -91,11 +91,7 @@ namespace OnlineTestApp.Controllers
 
             var studentID = (int)Session["StudentId"];
             StudentManager sManager = new StudentManager();
-            var studentDTO = sManager.GetStudent(studentID);
-            studentDTO.MarksId= marksid;
-
-            var ssManager = new StudentManager();
-            ssManager.UpdateStudent(studentDTO);
+            sManager.UpdateStudentsMarks(studentID,marksid);
 
             //TODO ; create object of Marks and assign the marks
 

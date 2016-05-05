@@ -21,6 +21,18 @@ namespace OnlineTestBL
             }
 
         }
+
+        public Question GetQuestionByID(int questionID)
+        {
+            {
+                using (var repository = new CommonRepository<Question>())
+                {
+                   return repository.Get(questionID);
+                }
+            }
+
+        }
+
         public void ModifyQuestion(Question question)
         {
             {
