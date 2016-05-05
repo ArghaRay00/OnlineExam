@@ -62,111 +62,9 @@ namespace OnlineTestApp.Controllers
             return View("Index");
 
         }
-        public ActionResult AssignQuestionSet()
-        {
-            return View();
-        }
+   
 
-        public ActionResult CreateQuestion()
-        {
-            return View();
-        }
-          
-        [HttpPost]
-        public ActionResult CreateQuestion(Question questionModel)
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<QuestionModel, Question>());
-            var mapper = config.CreateMapper();
-            Question question = mapper.Map<Question>(questionModel);
-            var qManager = new QuestionSetManager();
-            qManager.CreateQuestion(question);
-
-            return View("Index");
-        }
-        public ActionResult DeleteQuestion()
-        {
-            return View();
-        }
-        [HttpPost,ActionName("Delete")]
-        public ActionResult DeleteQuestion(Question questionModel)
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<QuestionModel, Question>());
-            var mapper = config.CreateMapper();
-            Question question = mapper.Map<Question>(questionModel);
-            var qManager = new QuestionSetManager();
-            qManager.DeleteQuestion(question);
-
-            return View("Index");
-        }
-
-        public ActionResult ModifyQuestion()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult ModifyQuestion(Question questionModel) {
-
-
-
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<QuestionModel, Question>());
-            var mapper = config.CreateMapper();
-            Question question = mapper.Map<Question>(questionModel);
-            var qManager = new QuestionSetManager();
-            qManager.ModifyQuestion(question);
-
-            return View("Index");
-        }
-    
-        public ActionResult CreateQuestionSet()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult CreateQuestionSet(QuestionSet questionSetModel)
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<QuestionSet, Questionset>());
-            var mapper = config.CreateMapper();
-            Questionset questionset = mapper.Map<Questionset>(questionSetModel);
-            var qManager = new QuestionSetManager();
-            qManager.CreateQuestionSet(questionset);
-            return View("Index");
-        }
-        public ActionResult ModifyQuestionset()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ModifyQuestionSet(QuestionSet questionSetModel)
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<QuestionSet, Questionset>());
-            var mapper = config.CreateMapper();
-            Questionset questionset = mapper.Map<Questionset>(questionSetModel); 
-            var qManager = new QuestionSetManager();
-           
-            qManager.ModifyQuestionSet(questionset);
-           
-            return View("Index");
-        }
-        public ActionResult DeleteQuestionset()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult DeleteQuestionSet(QuestionSet questionSetModel)
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<QuestionSet, Questionset>());
-            var mapper = config.CreateMapper();
-            Questionset questionset = mapper.Map<Questionset>(questionSetModel);
-            var qManager = new QuestionSetManager();
-           
-           
-            qManager.DeleteQuestionSet(questionset);
-            return View("Index");
-        }
-
-        public ActionResult Exam() {
+ public ActionResult Exam() {
 
             return View();
 
@@ -203,18 +101,7 @@ namespace OnlineTestApp.Controllers
         //    return View("Exam",question);
         //}
 
-        public ActionResult QuestionOperation()
-        {
-            return View();
-        }
-        public ActionResult QuestionSetOperation()
-        {
-            return View();
-        }
-       
-
-
-        public ActionResult CreateLocation()
+   public ActionResult CreateLocation()
         {
             return View();
         }
