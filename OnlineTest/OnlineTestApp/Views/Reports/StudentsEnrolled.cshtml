@@ -1,0 +1,46 @@
+﻿@model OnlineTestApp.Models.ReportSelectCollege
+@using OnlineTestApp.Models
+@using OnlineTestBL
+@{
+    ViewBag.Title = "StudentsEnrolled";
+    var StudentManager = new StudentManager();
+    var Colleges = StudentManager.GetAllColleges();
+    List<ReportSelectCollege> listofcolleges = new List<ReportSelectCollege>();
+    foreach (var College  in Colleges)
+    {
+        var college = new ReportSelectCollege();
+        college.CollegeId = College.CollegeId;
+        college.CollegeName = College.CollegeName;
+        listofcolleges.Add(college);
+    }
+}
+
+<h2>ReportSelectCollege</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>AssignPanel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CollegeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CollegeId, new SelectList(listofcolleges, "CollegeId", "CollegeName"), "---Select A College---")
+                @Html.ValidationMessageFor(model => model.CollegeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="AssignPanel" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

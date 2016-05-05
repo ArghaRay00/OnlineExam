@@ -13,5 +13,10 @@ namespace OnlineTestApp.Controllers
         {
             return View();
         }
+        public ActionResult StudentsEnrolled()
+        {
+            return View();
+        }
+
     }
 }
