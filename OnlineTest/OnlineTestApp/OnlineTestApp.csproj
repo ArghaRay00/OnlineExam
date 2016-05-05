@@ -123,11 +123,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Admin\RegisterCollege.cshtml" />
-    <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Admin\CreateLocation.cshtml" />
     <Content Include="Views\Admin\CreateQuestion.cshtml" />
-    <Content Include="Views\Admin\CreateQuestionSet.cshtml" />
-    <Content Include="Views\Admin\DeleteQuestion.cshtml" />
     <Content Include="Views\Admin\CreateCompany.cshtml" />
     <Content Include="Views\Admin\AssignPanelToExam.cshtml" />
     <Content Include="Views\Admin\CreatePanel.cshtml" />
@@ -180,12 +177,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Exam\Registration.cshtml" />
     <Content Include="Views\Admin\RegisterExamination.cshtml" />
-    <Content Include="Views\Admin\Questionset.cshtml" />
     <Content Include="Views\Employee\EmployeeRegistration.cshtml" />
-    <Content Include="Views\Admin\Question.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Admin\ModifyQuestion.cshtml" />
-    <Content Include="Views\Admin\QuestionOperation.cshtml" />
     <Content Include="Views\Employee\HrRegistration.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Questions\Create.cshtml" />
