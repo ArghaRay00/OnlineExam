@@ -91,7 +91,12 @@ namespace OnlineTestApp.Controllers
 
             var studentID = (int)Session["StudentId"];
             StudentManager sManager = new StudentManager();
-            sManager.UpdateStudentsMarks(studentID,marksid);
+
+            var examinationCode = (string)Session["ExamCode"];
+            ExaminationManager exManager = new ExaminationManager();
+            var ExaminationDTO = exManager.GetExaminationbyCode(examinationCode);
+            
+            sManager.UpdateStudentsMarks(studentID,marksid,ExaminationDTO.ExaminationId);
 
             //TODO ; create object of Marks and assign the marks
 

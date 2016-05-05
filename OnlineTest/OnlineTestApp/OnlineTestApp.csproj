@@ -160,6 +160,7 @@
     <Compile Include="Models\PanelCheckboxModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Models\QuestionSet.cs" />
+    <Compile Include="Models\ResultsReportModel.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\StudentRegistration.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -195,6 +196,8 @@
     <Content Include="Views\Questions\DeleteQuestionSet.cshtml" />
     <Content Include="Views\LoginBase\LoginView.cshtml" />
     <Content Include="Views\Exam\ExamTaking.cshtml" />
+    <Content Include="Views\Reports\ResultsReport.cshtml" />
+    <Content Include="Views\Reports\_ResultReportsView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -205,7 +208,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
-    <Folder Include="Views\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineTestBL\OnlineTestBL.csproj">

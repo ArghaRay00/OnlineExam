@@ -1,0 +1,19 @@
+﻿@model OnlineTestApp.Models.ResultsReportModel
+
+@{
+    ViewBag.Title = "ResultsReport";
+}
+
+<h2>Select Exam</h2>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.TextBoxFor(x => x.ExamCode)
+
+    <hr/>
+    
+    <input type="submit"/>
+    
+}
+
