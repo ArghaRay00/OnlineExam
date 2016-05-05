@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201604302007450_fixedTechnicalPanel_1.Designer.cs">
       <DependentUpon>201604302007450_fixedTechnicalPanel_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605051302059_a1.cs" />
+    <Compile Include="Migrations\201605051302059_a1.Designer.cs">
+      <DependentUpon>201605051302059_a1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604302007450_fixedTechnicalPanel_1.resx">
       <DependentUpon>201604302007450_fixedTechnicalPanel_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605051302059_a1.resx">
+      <DependentUpon>201605051302059_a1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
