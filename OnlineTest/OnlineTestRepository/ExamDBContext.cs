@@ -28,7 +28,6 @@ namespace OnlineTestRepository
         public ExamDbContext()
             : base("name=ExamDbContext")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

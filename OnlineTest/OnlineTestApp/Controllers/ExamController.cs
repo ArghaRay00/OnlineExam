@@ -57,9 +57,6 @@ namespace OnlineTestApp.Controllers
             ExaminationManager exManager = new ExaminationManager();
             var ExaminationDTO = exManager.GetExaminationbyCode(examinationCode);
             //TODO :  Get the questions for the exams QuestionSet
-
-            
-           
                
             List<ExamTakingModel> examtakingModels = new List<ExamTakingModel>();
 

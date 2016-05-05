@@ -60,9 +60,9 @@ namespace OnlineTestBL
                 repository.Update(exam);
             }
         }
-        public Examination GetQuestionid(int QuestionsetId)
+        public Questionset GetQuestionByid(int QuestionsetId)
         {
-            using (var repository = new CommonRepository<Examination>())
+            using (var repository = new CommonRepository<Questionset>())
             {
                 return repository.Get(QuestionsetId);
             }
