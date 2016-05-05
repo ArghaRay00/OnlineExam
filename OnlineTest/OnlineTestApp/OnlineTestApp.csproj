@@ -198,6 +198,8 @@
     <Content Include="Views\Exam\ExamTaking.cshtml" />
     <Content Include="Views\Reports\ResultsReport.cshtml" />
     <Content Include="Views\Reports\_ResultReportsView.cshtml" />
+    <Content Include="Views\Reports\Error.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,2 +1,44 @@
-﻿@model IEnumerable<
+﻿@model IEnumerable<OnlineTestEntities.Student>
 
+@{
+    int rank = 1;
+}
+
+<h2>Result</h2>
+
+<table class="table" style="border: 1px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentUsn)
+        </th>
+        
+        <th>
+            @Html.DisplayName("Marks")
+        </th>
+        <th>
+            @Html.DisplayName("Rank")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentUsn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marks.Markss)
+        </td>
+        <td>
+            @(rank++)
+        </td>
+        
+    </tr>
+}
+
+</table>

@@ -33,8 +33,9 @@ namespace OnlineTestApp.Controllers
                 return View("Error");
             }
 
-            
-            return View("_ResultReportsView",);
+            var students = exam.Students.ToList().OrderByDescending(x => x.Marks.Markss);
+
+            return View("_ResultReportsView", students);
         }
     }
 }
