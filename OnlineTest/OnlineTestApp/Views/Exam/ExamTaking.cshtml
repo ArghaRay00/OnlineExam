@@ -1,25 +1,27 @@
-﻿@model IEnumerable<OnlineTestApp.Models.ExamTakingModel>
+﻿@model List<OnlineTestApp.Models.ExamTakingModel>
 
 @{
     ViewBag.Title = "ExamTaking";
 }
 
 <h2>ExamTaking</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-
-@foreach(var item in Model)
+@using (Html.BeginForm())
 {
-    Html.Label(item.Question.QuestionName);
-    <ol type="A" id="option_menu">
-        <li><input type="radio" name="QuestionSet" value="1">@Html.Label(item.Question.Option1)</li>
-        <li><input type="radio" name="QuestionSet" value="2">@Html.Label(item.Question.Option2)</li>
-        <li><input type="radio" name="QuestionSet" value="3">@Html.Label(item.Question.Option3)</li>
-        <li><input type="radio" name="QuestionSet" value="4">@Html.Label(item.Question.Option4)</li>
-    </ol>
+
+
+    for (int i = 0; i < Model.Count(); i++)
+    {
+        <div id="@Model[i].Question.QuestionId">
+            Html.LabelFor(x => x[i].Question.QuestionName);
+            <ol type="A" id="option_menu">
+                <li>@Html.RadioButtonFor(x => x[i].Question.Option1, Model[i].Choice)</li>
+                <li>@Html.RadioButtonFor(x => x[i].Question.Option2, Model[i].Choice)</li>
+                <li>@Html.RadioButtonFor(x => x[i].Question.Option3, Model[i].Choice)</li>
+                <li>@Html.RadioButtonFor(x => x[i].Question.Option4, Model[i].Choice)</li>
+            </ol>
+        </div>
+     
+       <hr/>
+    }
 
 }
-
