@@ -5,10 +5,8 @@ using System.Web;
 
 namespace OnlineTestApp.Models
 {
-    public class assign
+    public class StudentsReport
     {
-        public int ExaminationId { get; set; }
-        public int QuestionSetId { get; set; }
-
+        public string CollegeName { get; set; }
     }
 }

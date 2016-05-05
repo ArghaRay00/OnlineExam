@@ -1,0 +1,85 @@
+﻿@model IEnumerable<OnlineTestEntities.Student>
+
+
+<h2>Student Details</h2>
+
+<table class="table" style="border: 1px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentUsn)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentDob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentAddr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentMob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentAgg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentPer12th)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentCollege12th)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentPer10th)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.StudentSchool)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentUsn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentDob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentEmail)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentAddr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentMob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentAgg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentPer12th)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentCollege12th)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentPer10th)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentSchool)
+            </td>
+
+        </tr>
+    }
+
+</table>

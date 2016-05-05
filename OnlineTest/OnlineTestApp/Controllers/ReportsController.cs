@@ -37,5 +37,26 @@ namespace OnlineTestApp.Controllers
 
             return View("_ResultReportsView", students);
         }
+        public ActionResult StudentsReport()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult StudentsReport(StudentsReport model)
+        {
+
+            var sManager = new StudentManager();
+            var student = sManager.GetAllStudentsByCollge(model.CollegeName);
+
+            if (student == null)
+            {
+                return View("Error");
+            }
+
+            var ListofStudents = student.Students.ToList().OrderByDescending(z => z.StudentDob);
+
+            return View("_StudentReportsView", ListofStudents);
+        }
+
     }
 }

@@ -1,0 +1,19 @@
+﻿@model OnlineTestApp.Models.StudentsReport
+
+@{
+    ViewBag.Title = "StudentsReport";
+}
+
+<h2>Enter CollegeID</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.TextBoxFor(x => x.CollegeName)
+
+    <hr />
+
+    <input type="submit" />
+
+}
+

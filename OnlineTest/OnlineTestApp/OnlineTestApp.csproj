@@ -147,7 +147,6 @@
     </Compile>
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Answerchoice.cs" />
-    <Compile Include="Models\assign.cs" />
     <Compile Include="Models\AssignPanel.cs" />
     <Compile Include="Models\BaseViewPage.cs" />
     <Compile Include="Models\CustomPrincipal.cs" />
@@ -161,6 +160,7 @@
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Models\QuestionSet.cs" />
     <Compile Include="Models\ResultsReportModel.cs" />
+    <Compile Include="Models\StudentsReport.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\StudentRegistration.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -200,6 +200,8 @@
     <Content Include="Views\Reports\_ResultReportsView.cshtml" />
     <Content Include="Views\Reports\Error.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Reports\StudentsReport.cshtml" />
+    <Content Include="Views\Reports\_StudentReportsView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

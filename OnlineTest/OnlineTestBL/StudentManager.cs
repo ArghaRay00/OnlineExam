@@ -21,11 +21,11 @@ namespace OnlineTestBL
             }
         }
 
-        public IEnumerable<College> GetAllColleges()
+        public College GetAllStudentsByCollge(string CollegeName)
         {
-            using (var collegeRepo = new CommonRepository<College>())
+            using (var repository = new CommonRepository<College>())
             {
-                return collegeRepo.GetAll();
+                return repository.GetAll().FirstOrDefault(e => e.CollegeName==CollegeName);
             }
         }
 
@@ -34,6 +34,13 @@ namespace OnlineTestBL
             using (var repository = new CommonRepository<Student>())
             {
                 return repository.Get(studentID);
+            }
+        }
+        public IEnumerable<College> GetAllColleges()
+        {
+            using (var repository = new CommonRepository<College>())
+            {
+                return repository.GetAll().ToList();
             }
         }
 
