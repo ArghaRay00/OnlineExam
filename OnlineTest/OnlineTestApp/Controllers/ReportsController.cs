@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OnlineTestApp.Models;
+using OnlineTestBL;
 
 namespace OnlineTestApp.Controllers
 {
@@ -13,10 +15,27 @@ namespace OnlineTestApp.Controllers
         {
             return View();
         }
-        public ActionResult StudentsEnrolled()
+
+        public ActionResult ResultsReport()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ResultsReport(ResultsReportModel model)
+        {
+
+            var eManager = new ExaminationManager();
+            var exam = eManager.GetExaminationbyCode(model.ExamCode);
+
+            if (exam == null)
+            {
+                return View("Error");
+            }
+
+            var students = exam.Students.ToList().OrderByDescending(x => x.Marks.Markss);
+
+            return View("_ResultReportsView", students);
+        }
     }
 }
