@@ -1,6 +1,6 @@
 using Carter;
-using Microsoft.EntityFrameworkCore;
-using OnlineExam.Infrastructure.Data;
+using FluentValidation;
+using OnlineExam.Infrastructure;
 using Serilog;
 using Scalar.AspNetCore;
 
@@ -13,14 +13,18 @@ try
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.UseSerilog();
 
-    // Database
-    builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    // Infrastructure (DB, repos, JWT, auth)
+    builder.Services.AddInfrastructure(builder.Configuration);
+
+    // MediatR + FluentValidation
+    builder.Services.AddMediatR(cfg =>
+        cfg.RegisterServicesFromAssembly(typeof(OnlineExam.Application.Auth.Commands.RegisterCommand).Assembly));
+    builder.Services.AddValidatorsFromAssembly(typeof(OnlineExam.Application.Auth.Commands.RegisterCommandValidator).Assembly);
 
     // OpenAPI + Scalar
     builder.Services.AddOpenApi();
 
-    // Carter (endpoint modules)
+    // Carter
     builder.Services.AddCarter();
 
     // CORS
@@ -32,6 +36,8 @@ try
 
     app.UseSerilogRequestLogging();
     app.UseCors();
+    app.UseAuthentication();
+    app.UseAuthorization();
 
     // Scalar API docs at /scalar
     app.MapOpenApi();
