@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [master, v2-modern]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore OnlineExam.sln
+
+      - name: Build
+        run: dotnet build OnlineExam.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test OnlineExam.sln --configuration Release --no-build --verbosity normal
