@@ -1,97 +1,147 @@
 # Online Exam System
 
-A complete online examination platform built with ASP.NET MVC 5 and Entity Framework. Admins create exams with question sets, assign technical panels, and register colleges. Students register, take MCQ tests, and get scored automatically. Results can be pulled by exam code or filtered by college.
+A complete online examination platform. Admins create exams with question sets, assign technical panels, and register colleges. Students register, take MCQ tests, and get scored automatically. Results can be pulled by exam code or filtered by college.
 
-Built this during college to learn n-tier architecture with the repository pattern in .NET — the codebase is cleanly separated into four projects (Web App, Business Logic, Entities, Repository) instead of dumping everything in one project.
+Originally built in 2016 with .NET Framework 4.5.1. Modernized in 2026 to .NET 9 with Clean Architecture.
+
+## Version History
+
+| Branch | Stack | Status |
+|--------|-------|--------|
+| `v1-legacy` | ASP.NET MVC 5, EF6, SQL Server LocalDB, .NET Framework 4.5.1 | Preserved (original code) |
+| `v2-modern` / `master` | ASP.NET Core 9, EF Core 9, PostgreSQL, Carter, MediatR, JWT | Current |
+
+### What changed in v2
+
+| Area | v1 (2016) | v2 (2026) |
+|------|-----------|-----------|
+| Runtime | .NET Framework 4.5.1 | .NET 9 |
+| Web framework | ASP.NET MVC 5 (Razor views) | ASP.NET Core 9 (REST API + Carter) |
+| ORM | Entity Framework 6 | EF Core 9 |
+| Database | SQL Server LocalDB (Windows only) | PostgreSQL (cross-platform, Docker) |
+| Auth | Forms auth + cookies | JWT + BCrypt |
+| Passwords | Plaintext | BCrypt hashed |
+| DI | None (manual instantiation) | Built-in Microsoft DI |
+| Validation | None | FluentValidation |
+| CQRS | None | MediatR |
+| Logging | Console.WriteLine | Serilog (structured) |
+| API docs | None | Scalar (OpenAPI) |
+| Architecture | 3-tier (tightly coupled) | Clean Architecture (Domain → Application → Infrastructure → API) |
+| Entities | 17 (with duplicates) | 11 (consolidated) |
+| Tests | None | xUnit + FluentAssertions |
 
 ## What it does
 
-**Admin side:**
-- Register colleges and companies
-- Create question sets (group of MCQ questions with answer keys)
-- Create technical panels (exam invigilators)
-- Set up exams — assign question set, panel, college, date, duration, cutoff
-- View reports — results ranked by marks, students grouped by college
+**Admin flow:**
+1. Create locations, companies, colleges
+2. Create question sets and add MCQ questions (4 options + answer key)
+3. Create technical panels by selecting employees
+4. Create examinations — assign question set, panel, college, date, duration, cutoff
+5. Assign panel to exam
+6. View reports — results ranked by score, students by college
 
-**Student side:**
-- Register for an exam with USN, name, DOB, contact
-- Take the exam — MCQ format with options A/B/C/D, timed
-- Auto-graded against answer keys, marks stored
+**Student flow:**
+1. Register for an exam with USN, personal details, and exam code
+2. Get questions (answer keys are never exposed to the student)
+3. Submit answers — auto-graded against answer keys, pass/fail against cutoff
+4. Result stored with score, total, and pass status
 
-**Reporting:**
-- Results report — filter by exam code, shows all students ranked by score
-- Students report — filter by college, sorted by DOB
+## API Endpoints
 
-## Architecture
+### Auth
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | /api/auth/register | Public | Register user with BCrypt hash, returns JWT |
+| POST | /api/auth/login | Public | Login, returns JWT |
 
-```
-┌─────────────────────────────────────────────────────┐
-│  OnlineTestApp (ASP.NET MVC 5)                      │
-│  Controllers → Views (Razor) → ViewModels           │
-│  8 Controllers, 39 Views, Bootstrap UI              │
-├─────────────────────────────────────────────────────┤
-│  OnlineTestBL (Business Logic)                      │
-│  11 Manager classes — StudentManager,               │
-│  ExaminationManager, PanelManager, LoginManager...  │
-├─────────────────────────────────────────────────────┤
-│  OnlineTestRepository (Data Access)                 │
-│  Generic Repository pattern + EF6 DbContext         │
-│  9 Code-First migrations                            │
-├─────────────────────────────────────────────────────┤
-│  OnlineTestEntities (Domain Models)                 │
-│  15 entities: Student, Examination, Question,       │
-│  QuestionSet, College, Marks, Employee, Panel...    │
-├─────────────────────────────────────────────────────┤
-│  SQL Server LocalDB                                 │
-└─────────────────────────────────────────────────────┘
-```
+### Admin — Setup
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET/POST/PUT/DELETE | /api/locations | JWT | Location CRUD |
+| GET/POST/DELETE | /api/companies | JWT | Company CRUD |
+| GET/POST/DELETE | /api/colleges | JWT | College CRUD |
+| GET/POST/DELETE | /api/employees | JWT | Employee CRUD + filter by location |
+
+### Admin — Exam Management
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET/POST/DELETE | /api/question-sets | JWT | Question set CRUD |
+| GET/POST | /api/question-sets/:id/questions | JWT | Questions within a set |
+| GET/PUT/DELETE | /api/questions/:id | JWT | Individual question CRUD |
+| GET/POST/DELETE | /api/technical-panels | JWT | Panel CRUD (M:M with employees) |
+| GET/POST | /api/exams | JWT | Exam CRUD (marks question set as used) |
+| GET | /api/exams/by-code/:code | JWT | Lookup exam by code |
+| POST | /api/exams/:id/assign-panel | JWT | Assign panel to exam |
+
+### Student — Exam Taking
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | /api/exam-taking/register | Public | Register for exam with USN + exam code |
+| GET | /api/exam-taking/:examCode/questions | Public | Get questions (no answer keys) |
+| POST | /api/exam-taking/:examCode/submit/:studentId | Public | Submit answers, auto-grade |
+
+### Reports
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | /api/reports/results/:examCode | JWT | Results ranked by score with pass % |
+| GET | /api/reports/students/:collegeId | JWT | Students by college with avg scores |
 
 ## Tech Stack
 
-- **ASP.NET MVC 5** on .NET Framework 4.5.1
-- **Entity Framework 6.1.3** — Code-First with migrations
-- **SQL Server LocalDB** — Development database
-- **Razor** — Server-side view engine
-- **Bootstrap 3** + jQuery — Frontend UI
-- **AutoMapper** — DTO/ViewModel mapping
-- **Repository Pattern** — Generic + Common repository for data access
-
-## Key Entities
-
-| Entity | Purpose |
-|--------|---------|
-| `Student` | USN, name, DOB, email, college, marks |
-| `Examination` | Exam code, date, duration, cutoff, question set, panel |
-| `Question` | Question text, 4 options (A-D), answer key |
-| `QuestionSet` | Group of questions, reuse tracking |
-| `College` | Institutions registering students |
-| `TechnicalPanel` | Exam invigilators/panel members |
-| `Marks` | Score per student per exam |
-| `Employee` / `Hr` | Staff roles for administration |
+- **ASP.NET Core 9** — Minimal API with Carter endpoint modules
+- **EF Core 9** — Code-First with PostgreSQL
+- **MediatR** — CQRS pattern for auth commands
+- **FluentValidation** — Request validation
+- **Mapster** — Object mapping
+- **BCrypt** — Password hashing
+- **JWT Bearer** — Authentication
+- **Serilog** — Structured logging
+- **Scalar** — OpenAPI documentation (at /scalar)
+- **xUnit + FluentAssertions** — Testing
+- **Docker** — PostgreSQL container
 
 ## Project Structure
 
 ```
-OnlineTest/
-├── OnlineTestApp/            # MVC web app (controllers, views, models)
-│   ├── Controllers/          # 8 controllers (Admin, Exam, Login, Reports, Questions...)
-│   ├── Views/                # 39 Razor views across modules
-│   ├── Models/               # ViewModels and DTOs
-│   ├── Filters/              # Custom authorization attribute
-│   └── Content/Scripts/      # Bootstrap, jQuery, CSS
-├── OnlineTestBL/             # Business logic layer (11 Manager classes)
-├── OnlineTestEntities/       # Domain entities (15 models)
-└── OnlineTestRepository/     # EF6 DbContext, generic repository, migrations
+src/
+├── OnlineExam.Domain/              # Entities, enums, interfaces (zero deps)
+├── OnlineExam.Application/         # Commands, handlers, validators (MediatR + FluentValidation)
+├── OnlineExam.Infrastructure/      # EF Core, repositories, JWT, DI setup
+└── OnlineExam.API/                 # Carter endpoints, Serilog, Scalar, Program.cs
+
+tests/
+├── OnlineExam.Domain.Tests/
+└── OnlineExam.Application.Tests/
 ```
 
 ## Running it
 
-1. Open `OnlineTest/OnlineTest.sln` in Visual Studio 2015+
-2. Restore NuGet packages
-3. Update connection string in `Web.config` if needed (defaults to LocalDB)
-4. Run migrations: `Update-Database` in Package Manager Console
-5. F5 to run
+```bash
+# Prerequisites: .NET 9 SDK, Docker
 
-## Note
+# Start PostgreSQL
+docker compose up -d
 
-Built in 2016 as a college project. ASP.NET MVC 5 on .NET Framework is legacy now (modern equivalent is ASP.NET Core), but the architecture patterns — n-tier separation, repository pattern, code-first migrations, role-based auth — are still relevant and widely used.
+# Run the API
+cd src/OnlineExam.API
+dotnet run                    # http://localhost:5000
+
+# API docs
+open http://localhost:5000/scalar
+```
+
+## Entities
+
+| Entity | Purpose |
+|--------|---------|
+| User | Auth — username, email, BCrypt hash, role (Admin/HR/TechnicalPanelist/Student) |
+| Location | Geographic locations for colleges and exams |
+| Company | Companies running recruitment exams |
+| College | Colleges registering students |
+| Employee | Staff assigned to technical panels |
+| TechnicalPanel | Exam invigilators (M:M with employees) |
+| QuestionSet | Group of MCQ questions (marked as used when assigned to exam) |
+| Question | MCQ — text, 4 options (A/B/C/D), correct option |
+| Examination | Exam setup — code, date, duration, cutoff, college, panel, question set |
+| Student | Registered exam takers with academic details |
+| ExamResult | Score per student per exam — auto-graded, pass/fail |

@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: exam_user
+      POSTGRES_PASSWORD: exam_pass
+      POSTGRES_DB: online_exam
+    ports:
+      - '5473:5432'
+    volumes:
+      - exam_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  exam_postgres_data:
